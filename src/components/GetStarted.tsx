@@ -58,7 +58,6 @@ export function GetStarted() {
       {/* Subtle scribble lines */}
       {[...Array(30)].map((_, i) => <SubtleScribbleLine key={i} />)}
 
-      {/* Coding jokes, math equations, and doodles */}
       {[
         "Innovate", "Explore", "Create", "Discover", "Learn", "Design", "Imagine", "Build", "Grow", "Achieve", "Develop", "Master", "Understand", "Advance", "Progress", "Excel", "Enhance", "Improve", "Skill", "Knowledge", "Mentor", "Coach", "Guide", "Instruct", "Educate", "Train", "Practice", "Study", "Analyze", "Research", "Solve", "Think",
         "console.log('Hello, world!');", "E = mc^2", "π ≈ 3.14159", "∫ f(x) dx = F(x) + C", "<div>Hello, HTML!</div>", "Voltage = Current × Resistance", "Resistor ->", "<Button>Click Me</Button>", "<script>alert('Boo!')</script>", "class Foo extends Bar {}", "Voltage Divider Rule", "F = ma", "Pythagoras: a² + b² = c²", "let x = 42;", "<div id='fun'>Coding!</div>", "5V Power Supply", "Binary", "101010", "<CPU>Processor</CPU>", "return True;", "Current Flow ->"
@@ -100,7 +99,7 @@ export function GetStarted() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/get-started"
+                  href="/password/signup"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-white shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 >
                   Get Started
@@ -129,14 +128,6 @@ export function GetStarted() {
           </div>
         </div>
       </main>
-      
-      <footer className="py-6 border-t border-gray-200 text-center text-sm text-gray-500 z-10">
-        <p>&copy; 2024 PREPEX Learning. All rights reserved.</p>
-        <nav className="mt-2">
-          <Link href="/terms" className="hover:underline mx-2">Terms of Service</Link>
-          <Link href="/privacy" className="hover:underline mx-2">Privacy Policy</Link>
-        </nav>
-      </footer>
     </div>
   );
 }
