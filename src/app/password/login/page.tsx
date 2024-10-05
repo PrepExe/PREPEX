@@ -2,6 +2,8 @@
 import { useState } from "react";
 import AuthForm from "../../../components/AuthForm";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 const Login: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -25,6 +27,11 @@ const Login: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-indigo-600">
+      <div className="absolute top-4 left-4">
+        <Link href="/">
+          <Image src='/PREPEX.png' alt="PREPEX Logo" width={50} height={50} />
+        </Link>
+      </div>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md ">
         <AuthForm mode="Login" onSubmit={handleLogin} />
       </div>

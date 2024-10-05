@@ -24,7 +24,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ mode, onSubmit, resetForm }) => {
     e.preventDefault();
 
     if (mode === "Signup" && password !== confirmPassword) {
-      alert("Passwords do not match!"); // Basic validation for matching passwords
+      alert("Passwords do not match!");
       return;
     }
 

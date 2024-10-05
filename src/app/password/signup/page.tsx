@@ -2,6 +2,7 @@
 import { useState } from "react";
 import AuthForm from "../../../components/AuthForm";
 import Link from "next/link";
+import Image from "next/image";
 
 const Signup: React.FC = () => {
   const [message, setMessage] = useState("");
@@ -26,7 +27,12 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 ">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 relative">
+      <div className="absolute top-4 left-4">
+        <Link href="/">
+          <Image src='/PREPEX.png' alt="PREPEX Logo" width={50} height={50} />
+        </Link>
+      </div>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md w-full max-w-md ">
         {isSuccessful ? (
           <>
