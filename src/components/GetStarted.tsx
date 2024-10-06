@@ -18,7 +18,7 @@ const SubtleRandomText = ({ children, className = "" }: { children: ReactNode, c
 
 // Function to create subtle scribble lines for the background
 const SubtleScribbleLine = () => (
-  <svg className="absolute z-0 opacity-20" style={{
+  <svg className="absolute z-0 opacity-10" style={{
     top: `${Math.random() * 100}%`,
     left: `${Math.random() * 100}%`,
     transform: `rotate(${Math.random() * 360}deg)`,
@@ -39,12 +39,18 @@ const RandomSubtleText = ({ text }: { text: ReactNode }) => {
   const fontSize = Math.random() > 0.5 ? 'text-lg' : 'text-xs';
   const fontWeight = Math.random() > 0.7 ? 'font-bold' : 'font-light';
   const fontStyle = Math.random() > 0.5 ? 'italic' : 'normal';
-  const isHandwriting = Math.random() > 0.8 ? '' : 'handwriting';
+
+  // Set the restricted region with a 10px safe zone around the main content
+  const topOffset = Math.random() * 100;
+  const leftOffset = Math.random() * 100;
+
+  const top = topOffset > 40 && topOffset < 60 ? `${topOffset + 10}%` : `${topOffset}%`; // Adjust for 10px safety
+  const left = leftOffset > 40 && leftOffset < 60 ? `${leftOffset + 10}%` : `${leftOffset}%`; // Adjust for 10px safety
 
   return (
-    <span className={`absolute z-0 text-gray-400 opacity-80 ${isHandwriting} ${fontSize} ${fontWeight} ${fontStyle}`} style={{
-      top: `${Math.random() * 80}%`,
-      left: `${Math.random() * 80}%`,
+    <span className={`absolute z-0 text-gray-400 opacity-60 handwriting ${fontSize} ${fontWeight} ${fontStyle}`} style={{
+      top: top,  // 10px safe zone
+      left: left,
       transform: `rotate(${Math.random() * 15 - 5}deg)`,
     }}>
       {text}
@@ -65,6 +71,7 @@ export function GetStarted() {
         <RandomSubtleText key={i} text={text} />
       ))}
 
+      {/* Header with Logo and Nav */}
       <header className="px-8 lg:px-12 h-20 flex items-center relative z-10">
         <div className="absolute top-4 left-8 z-10">
           <Link href="/">
@@ -115,8 +122,8 @@ export function GetStarted() {
             <div className="relative mx-auto" style={{ transform: "rotate(-4deg)" }}>
               <Image
                 src="/PREPEX.png"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 alt="PREPEX Creative Learning"
                 className="rounded-xl shadow-lg"
               />

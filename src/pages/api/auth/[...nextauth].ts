@@ -8,6 +8,7 @@ export interface Session {
     email: string | null;
   };
 }
+
 export default NextAuth({
   // Define the authentication providers
   providers: [
@@ -17,6 +18,8 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
   ],
+  // Add the secret for production
+  secret: process.env.NEXTAUTH_SECRET,
   // Define callback functions to manage session and token
   callbacks: {
     // Modify the session object before it is returned to the client
